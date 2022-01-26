@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="realtime">
+    <nav class="container">MyDigitalClock.com</nav>
+    <h2 class="cont mean-heading">Digital Clock</h2>
+    <div id="time">
+        <div class="hrs"><label id="hrs"></label>
+            <label>Hours</label>
+        </div>
+        <div class="mint"><label id="mint"></label>
+            <label>Minutes</label>
+        </div>
+        <div class="sec"><label id="sec"></label>
+            <label>Seconds</label>
+        </div>
+
+    </div>
+</div>
+<style>
+    .mean-heading {
+        color: #111;
+        padding: 30px;
+        padding-bottom: 1px;
+        margin: 50px 0;
+        font-weight: 1000;
+        text-transform: uppercase;
+        letter-spacing: 10px;
+        font-size: 30px;
+    }
+
+    h3 {
+        font-size: 28px;
+        color: black;
+    }
+
+    .container {
+        color: white;
+        background: black;
+        margin: auto;
+        padding: 12px;
+        border-radius: 8px;
+        font-size: 23px;
+    }
+    #realtime #time {
+        display: flex;
+    }
+
+    div {
+        position: relative;
+        margin: 0 5px;
+    }
+
+    label:before {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background: inherit;
+        top: 0.5rem;
+        filter: blur(0.4rem);
+        opacity: 0.7;
+        z-index: -1;
+    }
+
+    div label {
+        cursor: pointer;
+        position: relative;
+        text-align: center;
+        width: 200px;
+        height: 150px;
+        background: linear-gradient(to right, #111, #fff);
+        color: #111;
+        font-weight: 550;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 3em;
+        z-index: 10;
+    }
+
+    div label:nth-child(2) {
+        height: 30px;
+        font-size: 0.7em;
+        letter-spacing: 0.2em;
+        z-index: 9;
+        color: #111;
+        text-transform: uppercase;
+        background: linear-gradient(to right, #111, #fff);
+        top: 1px;
+    }
+
+    .hrs {
+        transition: 0.9s ease;
+        font-size: 30px;
+    }
+
+    .hrs :hover {
+        transform: scale(1.1);
+        background: #fff;
+    }
+
+    .mint {
+        transition: 0.9s ease;
+        font-size: 30px;
+    }
+
+    .mint :hover {
+        transform: scale(1.1);
+        background: #fff;
+    }
+
+    .sec {
+        transition: 0.9s ease;
+        font-size: 30px;
+    }
+
+    .sec :hover {
+        transform: scale(1.1);
+        background: #fff;
+    }
+
+</style>
+<script>
+    function realtime() {
+    var hr = document.getElementById('hrs');
+    var mint = document.getElementById('mint');
+    var sec = document.getElementById('sec');
+
+    var h = new Date().getHours();
+    var m = new Date().getMinutes();
+    var s = new Date().getSeconds();
+
+    h = (h < 10) ? "0" + h : h
+    m = (m < 10) ? "0" + m : m
+    s = (s < 10) ? "0" + s : s
+
+    hr.innerHTML = h;
+    mint.innerHTML = m;
+    sec.innerHTML = s;
+    }
+
+    var interval = setInterval(realtime, 0);
+</script>
+<h3>- Jaskaran Singh</h3>
+</body>
+<script src="script.js"></script>
+</html>
